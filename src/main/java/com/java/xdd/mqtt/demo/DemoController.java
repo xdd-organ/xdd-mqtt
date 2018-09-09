@@ -17,8 +17,10 @@ public class DemoController {
     @RequestMapping("demo")
     public String demo() {
 
-        Message<String> message = MessageBuilder.withPayload("修改笔记，新的笔记名称：")
-                .setHeader(MqttHeaders.TOPIC, "mqtt-topic-demo").build();
+//        Message<String> message = MessageBuilder.withPayload("cba@项客户端id为cba推送消息")//向客户端id为cba发送消息
+//                .setHeader(MqttHeaders.TOPIC, "channel@ptp").build();
+        Message<String> message = MessageBuilder.withPayload("向客户端推送消息")
+                .setHeader(MqttHeaders.TOPIC, "channel@ptp").build();
         gateway.sendMessage(message);
 
         return "succ";

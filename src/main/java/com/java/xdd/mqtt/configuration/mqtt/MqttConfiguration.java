@@ -63,10 +63,18 @@ public class MqttConfiguration {
 		return new ReceiveMessageHandler();
 	}
 
-	@Bean
+	@Bean(name = "abc")
 	public MessageProducerSupport mqttInbound() {
-		MqttPahoMessageDrivenChannelAdapter adapter = new MqttPahoMessageDrivenChannelAdapter(
-				clientId + String.format("%05d", rand.nextInt(10000)), clientFactory(), "mqtt-topic-demo");
+		MqttPahoMessageDrivenChannelAdapter adapter = new MqttPahoMessageDrivenChannelAdapter("abc1", clientFactory(), "channel@ptp");
+		adapter.setConverter(new DefaultPahoMessageConverter());
+		adapter.setQos(1);
+		adapter.setOutputChannel(mqttInputChannel());
+		return adapter;
+	}
+
+	@Bean(name = "cba")
+	public MessageProducerSupport mqttInbound2() {
+		MqttPahoMessageDrivenChannelAdapter adapter = new MqttPahoMessageDrivenChannelAdapter("cba", clientFactory(), "channel@ptp");
 		adapter.setConverter(new DefaultPahoMessageConverter());
 		adapter.setQos(1);
 		adapter.setOutputChannel(mqttInputChannel());
