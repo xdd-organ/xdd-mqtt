@@ -18,6 +18,8 @@ public class MqDemoController {
     @RequestMapping("demo")
     public String demo() {
         producer.sendMessage(new ActiveMQQueue("mytest.queue"), "send message");
+        producer.sendMessage2(new ActiveMQQueue("mytest.queue"), "send message2");
+        producer.sendMessage3(new ActiveMQQueue("mytest.queue"), "send message3");
         return "succ";
     }
 
