@@ -2,7 +2,7 @@ package com.java.xdd.mqtt.configuration.mqtt;
 
 import java.util.Random;
 
-import com.java.xdd.mqtt.demo.ReceiveMessageHandler;
+import com.java.xdd.mqtt.mqtt.demo.ReceiveMessageHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.ServiceActivator;

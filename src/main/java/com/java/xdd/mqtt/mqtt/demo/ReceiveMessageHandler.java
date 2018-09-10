@@ -1,12 +1,10 @@
-package com.java.xdd.mqtt.demo;
+package com.java.xdd.mqtt.mqtt.demo;
 
+import ch.qos.logback.classic.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHandler;
-import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.MessagingException;
-
-import ch.qos.logback.classic.Logger;
 
 public class ReceiveMessageHandler implements MessageHandler {
 
